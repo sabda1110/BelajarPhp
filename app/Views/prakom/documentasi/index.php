@@ -9,7 +9,7 @@
               <table class="table table-striped">
                   <thead>
                       <tr>
-                          <th scope="col">Kode Kegiatan</th>
+                          <th scope="col">Kode Jabatan</th>
                           <th scope="col">Jabatan</th>
                           <th scope="col">Jenjang</th>
                           <th scope="col">Butir Kegiatan</th>

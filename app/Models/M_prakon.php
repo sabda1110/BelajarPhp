@@ -15,4 +15,9 @@ class M_prakon extends Model
     {
         return $this->koneksi->table('struktur_bps')->get()->getResultArray();
     }
+
+    public function getkamusPrakon()
+    {
+        return $this->koneksi->table('kegiatan')->get()->getResultArray();
+    }
 }
