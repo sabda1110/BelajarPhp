@@ -14,7 +14,7 @@
 
            <!-- Nav Item - Dashboard -->
            <li class="nav-item">
-               <a class="nav-link" href="index.html">
+               <a class="nav-link" href="<?php base_url() ?>">
                    <i class="fas fa-fw fa-tachometer-alt"></i>
                    <span>Dashboard</span></a>
            </li>
@@ -37,7 +37,7 @@
                    <div class="bg-white py-2 collapse-inner rounded">
                        <h6 class="collapse-header">Kegiatan Components:</h6>
                        <a class="collapse-item" href="prakon">Documentasi</a>
-                       <a class="collapse-item" href="cards.html">Kamus</a>
+                       <a class="collapse-item" href="kamus">Kamus</a>
                    </div>
                </div>
            </li>

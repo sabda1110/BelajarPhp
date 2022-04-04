@@ -20,4 +20,9 @@ class M_prakon extends Model
     {
         return $this->koneksi->table('kegiatan')->get()->getResultArray();
     }
+
+    public function tambah($data)
+    {
+        return $this->koneksi->table('kegiatan')->insert($data);
+    }
 }

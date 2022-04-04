@@ -2,6 +2,23 @@
 
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">Data Butir Kegiatan</h1>
+    <?php if (session()->getFlashdata('pesan')) : ?>
+        <div class="alert alert-success" role="alert">
+            <?= session()->getFlashdata('pesan') ?>
+        </div>
+    <?php endif; ?>
+
+
+
+    <div class="row">
+        <div class="col-md-6">
+            <?php
+            if (session()->get('err')) {
+                echo "<div class='alert alert-danger' role='alert'>" . session()->get('err') . "</div>";
+            }
+            ?>
+        </div>
+    </div>
     <div class="card">
 
         <div class="card-body">
@@ -54,7 +71,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?= base_url('prakon/tambah') ?>" method="post">
+                <form action="prakon/tambah" method="post">
                     <div class="form-group">
                         <label for="kd_kegiatan"></label>
                         <input type="text" name="kd_kegiatan" id="kd_kegiatan" class="form-control" placeholder="Masukan Kode Kegiatan">
@@ -80,7 +97,7 @@
                     </div>
                     <div class="form-group">
                         <label for="angka_kredit"></label>
-                        <input type="text" name="angka_kredit" id="angka_kredit" class="form-control" placeholder="Masukan Angka Kredit">
+                        <input type="number" name="angka_kredit" id="angka_kredit" class="form-control" placeholder="Masukan Angka Kredit">
 
                     </div>
                     <div class="form-group">
@@ -99,23 +116,22 @@
                     </div>
                     <div class="form-group">
                         <label for="contoh"></label>
-                        <textarea class="form-control" name="contoh" id="contoh" rows="3" placeholder="Masukan Bukti Fisik"></textarea>
+                        <textarea class="form-control" name="contoh" id="contoh" rows="3" placeholder="Masukan Contoh"></textarea>
                     </div>
                     <div class="form-group">
-                        <select class="form-control" name="combo1" id="combo1">
+                        <select class="form-control" name="kd_kerja" id="combo1">
                             <option value="">Pilih Kode Jabatan</option>
                             <?php foreach ($struktur as $k) : ?>
                                 <option value="<?= $k['kd_kerja'] ?>"><?= $k['kd_kerja'] ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
-
-                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="Submit" class="btn btn-primary">Tambah</button>
+                <button type="submit" name="tambah" class="btn btn-primary">Tambah</button>
             </div>
         </div>
+        </form>
     </div>
 </div>
