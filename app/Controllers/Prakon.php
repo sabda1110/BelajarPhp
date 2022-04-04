@@ -51,7 +51,7 @@ class Prakon extends BaseController
         echo view('template/header', $data);
         echo view('template/sidebar');
         echo view('template/topbar');
-        echo view('prakom/kamusprakon/detail');
+        echo view('prakom/detail');
         echo view('template/footer');
     }
     public function tambah()
@@ -109,6 +109,15 @@ class Prakon extends BaseController
                 }
             }
         } else {
+            return redirect()->to(base_url('kamus'));
+        }
+    }
+
+    public function hapus($kd_kegiatan)
+    {
+        $success = $this->model->hapus($kd_kegiatan);
+        if ($success) {
+            session()->setFlashdata('pesan', 'Data Berhasil Di Hapus');
             return redirect()->to(base_url('kamus'));
         }
     }

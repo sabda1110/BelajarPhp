@@ -27,7 +27,7 @@
             </button>
             <table class="table table-striped">
                 <thead>
-                    <tr>
+                    <tr style="justify-content: center;">
                         <th scope="col">Kode Kegiatan</th>
                         <th scope="col">Kegiatan</th>
                         <th scope="col">Kode Jabatan</th>
@@ -43,7 +43,13 @@
                             <td><?= $row['kegiatan'] ?></td>
                             <td><?= $row['kd_kerja'] ?></td>
                             <td><?= $row['sub_kegiatan'] ?></td>
-                            <td class=""><a href="/prakon/detail/<?= $row['kd_kegiatan'] ?>" class="btn btn-success">Detail</a></td>
+                            <td class="">
+                                <button type="button" data-toggle="modal" data-target="#modalDetail" class="btn btn-success"><i class="fa fa-book"></i></button>
+                                <button type="button" data-toggle="modal" data-target="#modalHapus" class="btn btn-danger"><i class="fa fa-trash-alt"></i></button>
+
+
+                            </td>
+
                         </tr>
                     <?php endforeach; ?>
 
@@ -60,7 +66,7 @@
 <!-- Button trigger modal -->
 
 
-<!-- Modal -->
+<!-- Modal Insert Data -->
 <div class="modal fade" id="modalTambah">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -133,5 +139,23 @@
             </div>
         </div>
         </form>
+    </div>
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalHapus">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                Menghapus Data ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <a href="/Prakon/hapus/<?= $row['kd_kegiatan'] ?>" class="btn btn-primary">Yakin</a>
+            </div>
+        </div>
     </div>
 </div>

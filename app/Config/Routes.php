@@ -33,7 +33,7 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/kamus', 'Prakon::kamus');
-$routes->get('/prakon/detail/(:any)', 'Prakon::detail/$1');
+$routes->get('/detail/(:any)', 'Prakon::detail/$1');
 
 /*
  * --------------------------------------------------------------------

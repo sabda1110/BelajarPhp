@@ -25,4 +25,8 @@ class M_prakon extends Model
     {
         return $this->koneksi->table('kegiatan')->insert($data);
     }
+    public function hapus($kd_kegiatan)
+    {
+        return $this->koneksi->table('kegiatan')->delete(['kd_kegiatan' => $kd_kegiatan]);
+    }
 }
