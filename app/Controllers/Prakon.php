@@ -115,9 +115,79 @@ class Prakon extends BaseController
 
     public function hapus($kd_kegiatan)
     {
-        $success = $this->model->hapus($kd_kegiatan);
-        if ($success) {
-            session()->setFlashdata('pesan', 'Data Berhasil Di Hapus');
+
+
+
+        $this->model->hapus($kd_kegiatan);
+        session()->setFlashdata('message', 'Dihapus!');
+        return redirect()->to(base_url('kamus'));
+    }
+
+    public function edit()
+    {
+
+
+        if (isset($_POST['edit'])) {
+            $kd_kegiatan = $this->request->getPost('kd_kegiatan');
+            $kd_kegiatan_db = $this->model->getDataById($kd_kegiatan)['kd_kegiatan'];
+
+            if ($kd_kegiatan == $kd_kegiatan_db) {
+                $rules = 'required|max_length[5]';
+            } else {
+                $rules = 'required|max_length[5]|is_unique[kegiatan.kd_kegiatan]';
+            }
+            $val = $this->validate([
+                'kd_kegiatan' => [
+                    'label' => 'Kode Kegiatan',
+                    'rules' => $rules,
+                    'errors' => [
+                        'required' => '{field} Tidak Boleh Kosong',
+                        'is_unique' => '{field} Data Sudah Ada'
+                    ]
+                ],
+                'kegiatan' => [
+                    'label' => 'Kegiatan',
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} tidak Boleh Kosong'
+                    ]
+                ]
+            ]);
+
+            if (!$val) {
+                session()->setFlashdata('err', \Config\Services::validation()->listErrors());
+                $data = [
+                    'judul' => 'Dokumentasi Pekerjaan',
+                    'kegiatan' => $this->model->getkamusPrakon(),
+                    'struktur' => $this->model->getStruktur()
+                ];
+
+                return redirect()->to(base_url('kamus'));
+            } else {
+                $kd_kegiatan = $this->request->getPost('kd_kegiatan');
+                $data = [
+
+                    'kegiatan' => $this->request->getPost('kegiatan'),
+                    'sub_kegiatan' => $this->request->getPost('sub_kegiatan'),
+                    'desc_kegiatan' => $this->request->getPost('desc_kegiatan'),
+                    'satuan_hasil' => $this->request->getPost('satuan_hasil'),
+                    'angka_kredit' => $this->request->getPost('angka_kredit'),
+                    'batasan_penilaian' => $this->request->getPost('batasan_penilaian'),
+                    'pelaksana' => $this->request->getPost('pelaksana'),
+                    'bukti_fisik' => $this->request->getPost('bukti_fisik'),
+                    'contoh' => $this->request->getPost('contoh'),
+                    'kd_kerja' => $this->request->getPost('kd_kerja')
+
+                ];
+
+                //Update data
+                $success = $this->model->edit($data, $kd_kegiatan);
+                if ($success) {
+                    session()->setFlashdata('pesan', 'Data Berhasil Di Ubah');
+                    return redirect()->to(base_url('kamus'));
+                }
+            }
+        } else {
             return redirect()->to(base_url('kamus'));
         }
     }

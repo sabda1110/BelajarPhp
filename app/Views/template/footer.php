@@ -37,6 +37,7 @@
 </div>
 
 <!-- Bootstrap core JavaScript-->
+<script src="asset/js/jquery.min.js"></script>
 <script src="asset//vendor/jquery/jquery.min.js"></script>
 <script src="asset//vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -45,6 +46,10 @@
 
 <!-- Custom scripts for all pages-->
 <script src="asset//js/sb-admin-2.min.js"></script>
+
+
+<!-- My Script -->
+<script src="asset/js/script.js"></script>
 
 </body>
 
