@@ -113,6 +113,7 @@ class Prakon extends BaseController
         }
     }
 
+
     public function hapus($kd_kegiatan)
     {
 
@@ -189,6 +190,127 @@ class Prakon extends BaseController
             }
         } else {
             return redirect()->to(base_url('kamus'));
+        }
+    }
+
+
+    // Function untuk Documentasi
+
+    public function tambah1()
+    {
+        if (isset($_POST['tambah'])) {
+            $val = $this->validate([
+                'kd_kerja' => [
+                    'label' => 'Kode Jabatan',
+                    'rules' => 'required|max_length[5]|is_unique[struktur_bps.kd_kerja]',
+                    'errors' => [
+                        'required' => '{field} Tidak Boleh Kosong',
+                        'is_unique' => '{field} Data Sudah Ada'
+                    ]
+                ],
+                'jabatan' => [
+                    'label' => 'Jabatan',
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} tidak Boleh Kosong'
+                    ]
+                ]
+            ]);
+
+            if (!$val) {
+                session()->setFlashdata('err', \Config\Services::validation()->listErrors());
+                $data = [
+                    'judul' => 'Dokumentasi Pekerjaan',
+                    'struktur' => $this->model->getStruktur()
+                ];
+
+                return redirect()->to(base_url('prakon'));
+            } else {
+
+                $data = [
+                    'kd_kerja' => $this->request->getPost('kd_kerja'),
+                    'jabatan' => $this->request->getPost('jabatan'),
+                    'jenjang' => $this->request->getPost('jenjang'),
+                    'butir_kegiatan' => $this->request->getPost('butir_kegiatan'),
+
+                ];
+
+                //insert data
+                $success = $this->model->tambah1($data);
+                if ($success) {
+                    session()->setFlashdata('pesan', 'Data Berhasil Di Tambah');
+                    return redirect()->to(base_url('prakon'));
+                }
+            }
+        } else {
+            return redirect()->to(base_url('prakon'));
+        }
+    }
+
+    public function hapus1($kd_kerja)
+    {
+        $this->model->hapus1($kd_kerja);
+        session()->setFlashdata('pesan', 'Data Berhasil Di Hapus');
+        return redirect()->to(base_url('prakon'));
+    }
+
+    public function edit1()
+    {
+
+        if (isset($_POST['edit1'])) {
+            $kd_kerja = $this->request->getPost('kd_kerja');
+            $kd_kerja_db = $this->model->getDataByIdDoc($kd_kerja)['kd_kerja'];
+
+            if ($kd_kerja == $kd_kerja_db) {
+                $rules = 'required|max_length[5]';
+            } else {
+                $rules = 'required|max_length[5]|is_unique[struktur_bps.kd_kerja]';
+            }
+            $val = $this->validate([
+                'kd_kerja' => [
+                    'label' => 'Kode Kerja',
+                    'rules' => $rules,
+                    'errors' => [
+                        'required' => '{field} Tidak Boleh Kosong',
+                        'is_unique' => '{field} Data Sudah Ada'
+                    ]
+                ],
+                'jabatan' => [
+                    'label' => 'Jabatan',
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} tidak Boleh Kosong'
+                    ]
+                ]
+            ]);
+
+            if (!$val) {
+                session()->setFlashdata('err', \Config\Services::validation()->listErrors());
+                $data = [
+                    'judul' => 'Dokumentasi Pekerjaan',
+                    'struktur' => $this->model->getStruktur()
+                ];
+
+                return redirect()->to(base_url('prakon'));
+            } else {
+                $kd_kerja = $this->request->getPost('kd_kerja');
+                $data = [
+
+                    'jabatan' => $this->request->getPost('jabatan'),
+                    'jenjang' => $this->request->getPost('jenjang'),
+                    'butir_kegiatan' => $this->request->getPost('butir_kegiatan'),
+
+                ];
+
+                //Update data
+                $success = $this->model->edit1($data, $kd_kerja);
+                if ($success) {
+                    session()->setFlashdata('pesan', 'Data Berhasil Di Ubah');
+                    return redirect()->to(base_url('prakon'));
+                }
+            }
+        } else {
+            return redirect()->to(base_url('prakon'));
         }
     }
 }

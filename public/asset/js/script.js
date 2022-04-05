@@ -10,4 +10,7 @@ $(document).on('click', '#btn-edit', function () {
   $('.modal-body #bukti_fisik').val($(this).data('bukti_fisik'));
   $('.modal-body #contoh').val($(this).data('contoh'));
   $('.modal-body #kd_kerja').val($(this).data('kd_kerja'));
+  $('.modal-body #jabatan').val($(this).data('jabatan'));
+  $('.modal-body #jenjang').val($(this).data('jenjang'));
+  $('.modal-body #butir_kegiatan').val($(this).data('butir_kegiatan'));
 });
