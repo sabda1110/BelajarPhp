@@ -14,3 +14,16 @@ $(document).on('click', '#btn-edit', function () {
   $('.modal-body #jenjang').val($(this).data('jenjang'));
   $('.modal-body #butir_kegiatan').val($(this).data('butir_kegiatan'));
 });
+
+$(document).on('click', '#btn-detail', function () {
+  $('.modal-header .modal-title').text($(this).data('kegiatan'));
+  $('.modal-body .sub_kegiatan').text($(this).data('sub_kegiatan'));
+  $('.modal-body .desc_kegiatan').text($(this).data('desc_kegiatan'));
+  $('.modal-body .satuan_hasil').text($(this).data('satuan_hasil'));
+  $('.modal-body .angka_kredit').text($(this).data('angka_kredit'));
+  $('.modal-body .batasan_penilaian').text($(this).data('batasan_penilaian'));
+  $('.modal-body .pelaksana').text($(this).data('pelaksana'));
+  $('.modal-body .bukti_fisik').text($(this).data('bukti_fisik'));
+  $('.modal-body .contoh').text($(this).data('contoh'));
+  $('.modal-body .kd_kerja').text($(this).data('kd_kerja'));
+});
