@@ -11,19 +11,26 @@ class M_prakon extends Model
         $this->koneksi = db_connect();
     }
 
-    public function getStruktur()
+    public function getStruktur($id = null)
     {
-        return $this->koneksi->table('struktur_bps')->get()->getResultArray();
+        if ($id == null) {
+
+            return $this->koneksi->table('struktur_bps')->get()->getResultArray();
+        } else {
+
+            return  $this->koneksi->table('struktur_bps')->where('kd_kerja', $id)->get()->getRowArray();
+        }
     }
 
-    public function getDataById($kd_kegiatan)
+    public function getkamusPrakon($id = null)
     {
-        return  $this->koneksi->table('kegiatan')->where('kd_kegiatan', $kd_kegiatan)->get()->getRowArray();
-    }
+        if ($id == null) {
 
-    public function getkamusPrakon()
-    {
-        return $this->koneksi->table('kegiatan')->get()->getResultArray();
+            return $this->koneksi->table('kegiatan')->get()->getResultArray();
+        } else {
+
+            return  $this->koneksi->table('kegiatan')->where('kd_kegiatan', $id)->get()->getRowArray();
+        }
     }
 
     public function tambah($data)
@@ -54,9 +61,5 @@ class M_prakon extends Model
     public function edit1($data, $kd_kerja)
     {
         return $this->koneksi->table('struktur_bps')->update($data, ['kd_kerja' => $kd_kerja]);
-    }
-    public function getDataByIdDoc($kd_kerja)
-    {
-        return  $this->koneksi->table('struktur_bps')->where('kd_kerja', $kd_kerja)->get()->getRowArray();
     }
 }

@@ -10,6 +10,7 @@ class Prakon extends BaseController
     public function __construct()
     {
         $this->model = new M_prakon;
+        helper('sn');
     }
     public function index()
     {
@@ -19,11 +20,8 @@ class Prakon extends BaseController
             'struktur' => $this->model->getStruktur()
         ];
 
-        echo view('template/header', $data);
-        echo view('template/sidebar');
-        echo view('template/topbar');
-        echo view('prakom/documentasi/index');
-        echo view('template/footer');
+
+        tampilan('prakom/documentasi/index', $data);
     }
 
     public function kamus()
@@ -35,24 +33,7 @@ class Prakon extends BaseController
             'struktur' => $this->model->getStruktur()
         ];
 
-        echo view('template/header', $data);
-        echo view('template/sidebar');
-        echo view('template/topbar');
-        echo view('prakom/kamusprakon/index');
-        echo view('template/footer');
-    }
-    public function detail($kd_kegiatan)
-    {
-        $data = [
-            'judul' => 'Detail Kegiatan'
-
-        ];
-
-        echo view('template/header', $data);
-        echo view('template/sidebar');
-        echo view('template/topbar');
-        echo view('prakom/detail');
-        echo view('template/footer');
+        tampilan('prakom/kamusprakon/index', $data);
     }
     public function tambah()
     {
@@ -117,8 +98,6 @@ class Prakon extends BaseController
     public function hapus($kd_kegiatan)
     {
 
-
-
         $this->model->hapus($kd_kegiatan);
         session()->setFlashdata('message', 'Dihapus!');
         return redirect()->to(base_url('kamus'));
@@ -130,7 +109,7 @@ class Prakon extends BaseController
 
         if (isset($_POST['edit'])) {
             $kd_kegiatan = $this->request->getPost('kd_kegiatan');
-            $kd_kegiatan_db = $this->model->getDataById($kd_kegiatan)['kd_kegiatan'];
+            $kd_kegiatan_db = $this->model->getkamusPrakon($kd_kegiatan)['kd_kegiatan'];
 
             if ($kd_kegiatan == $kd_kegiatan_db) {
                 $rules = 'required|max_length[5]';
@@ -259,7 +238,7 @@ class Prakon extends BaseController
 
         if (isset($_POST['edit1'])) {
             $kd_kerja = $this->request->getPost('kd_kerja');
-            $kd_kerja_db = $this->model->getDataByIdDoc($kd_kerja)['kd_kerja'];
+            $kd_kerja_db = $this->model->getStruktur($kd_kerja)['kd_kerja'];
 
             if ($kd_kerja == $kd_kerja_db) {
                 $rules = 'required|max_length[5]';
