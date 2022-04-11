@@ -9,11 +9,19 @@ class Prakon extends BaseController
 {
     public function __construct()
     {
+        $this->session = service('session');
+        $this->auth = service('authentication');
         $this->model = new M_prakon;
         helper('sn');
     }
     public function index()
     {
+        if ($this->auth->check()) {
+            $redirectURL = session('redirect_url') ?? site_url('/');
+            unset($_SESSION['redirect_url']);
+
+            return redirect()->to($redirectURL);
+        }
 
         $data = [
             'judul' => 'Dokumentasi Pekerjaan',
@@ -26,6 +34,12 @@ class Prakon extends BaseController
 
     public function kamus()
     {
+        if ($this->auth->check()) {
+            $redirectURL = session('redirect_url') ?? site_url('/');
+            unset($_SESSION['redirect_url']);
+
+            return redirect()->to($redirectURL);
+        }
 
         $data = [
             'judul' => 'Dokumentasi Pekerjaan',
@@ -37,6 +51,12 @@ class Prakon extends BaseController
     }
     public function tambah()
     {
+        if ($this->auth->check()) {
+            $redirectURL = session('redirect_url') ?? site_url('/');
+            unset($_SESSION['redirect_url']);
+
+            return redirect()->to($redirectURL);
+        }
         if (isset($_POST['tambah'])) {
             $val = $this->validate([
                 'kd_kegiatan' => [
@@ -97,6 +117,12 @@ class Prakon extends BaseController
 
     public function hapus($kd_kegiatan)
     {
+        if ($this->auth->check()) {
+            $redirectURL = session('redirect_url') ?? site_url('/');
+            unset($_SESSION['redirect_url']);
+
+            return redirect()->to($redirectURL);
+        }
 
         $this->model->hapus($kd_kegiatan);
         session()->setFlashdata('message', 'Dihapus!');
@@ -105,6 +131,12 @@ class Prakon extends BaseController
 
     public function edit()
     {
+        if ($this->auth->check()) {
+            $redirectURL = session('redirect_url') ?? site_url('/');
+            unset($_SESSION['redirect_url']);
+
+            return redirect()->to($redirectURL);
+        }
 
 
         if (isset($_POST['edit'])) {
@@ -177,6 +209,12 @@ class Prakon extends BaseController
 
     public function tambah1()
     {
+        if ($this->auth->check()) {
+            $redirectURL = session('redirect_url') ?? site_url('/');
+            unset($_SESSION['redirect_url']);
+
+            return redirect()->to($redirectURL);
+        }
         if (isset($_POST['tambah'])) {
             $val = $this->validate([
                 'kd_kerja' => [
@@ -228,6 +266,12 @@ class Prakon extends BaseController
 
     public function hapus1($kd_kerja)
     {
+        if ($this->auth->check()) {
+            $redirectURL = session('redirect_url') ?? site_url('/');
+            unset($_SESSION['redirect_url']);
+
+            return redirect()->to($redirectURL);
+        }
         $this->model->hapus1($kd_kerja);
         session()->setFlashdata('pesan', 'Data Berhasil Di Hapus');
         return redirect()->to(base_url('prakon'));
@@ -235,6 +279,12 @@ class Prakon extends BaseController
 
     public function edit1()
     {
+        if ($this->auth->check()) {
+            $redirectURL = session('redirect_url') ?? site_url('/');
+            unset($_SESSION['redirect_url']);
+
+            return redirect()->to($redirectURL);
+        }
 
         if (isset($_POST['edit1'])) {
             $kd_kerja = $this->request->getPost('kd_kerja');
