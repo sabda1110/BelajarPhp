@@ -16,8 +16,8 @@ class Prakon extends BaseController
     }
     public function index()
     {
-        if ($this->auth->check()) {
-            $redirectURL = session('redirect_url') ?? site_url('/');
+        if (!$this->auth->check()) {
+            $redirectURL = session('redirect_url') ?? site_url('/login');
             unset($_SESSION['redirect_url']);
 
             return redirect()->to($redirectURL);
@@ -34,8 +34,8 @@ class Prakon extends BaseController
 
     public function kamus()
     {
-        if ($this->auth->check()) {
-            $redirectURL = session('redirect_url') ?? site_url('/');
+        if (!$this->auth->check()) {
+            $redirectURL = session('redirect_url') ?? site_url('/login');
             unset($_SESSION['redirect_url']);
 
             return redirect()->to($redirectURL);
@@ -51,8 +51,8 @@ class Prakon extends BaseController
     }
     public function tambah()
     {
-        if ($this->auth->check()) {
-            $redirectURL = session('redirect_url') ?? site_url('/');
+        if (!$this->auth->check()) {
+            $redirectURL = session('redirect_url') ?? site_url('/login');
             unset($_SESSION['redirect_url']);
 
             return redirect()->to($redirectURL);
@@ -117,8 +117,8 @@ class Prakon extends BaseController
 
     public function hapus($kd_kegiatan)
     {
-        if ($this->auth->check()) {
-            $redirectURL = session('redirect_url') ?? site_url('/');
+        if (!$this->auth->check()) {
+            $redirectURL = session('redirect_url') ?? site_url('/login');
             unset($_SESSION['redirect_url']);
 
             return redirect()->to($redirectURL);
@@ -131,8 +131,8 @@ class Prakon extends BaseController
 
     public function edit()
     {
-        if ($this->auth->check()) {
-            $redirectURL = session('redirect_url') ?? site_url('/');
+        if (!$this->auth->check()) {
+            $redirectURL = session('redirect_url') ?? site_url('/login');
             unset($_SESSION['redirect_url']);
 
             return redirect()->to($redirectURL);
@@ -209,8 +209,8 @@ class Prakon extends BaseController
 
     public function tambah1()
     {
-        if ($this->auth->check()) {
-            $redirectURL = session('redirect_url') ?? site_url('/');
+        if (!$this->auth->check()) {
+            $redirectURL = session('redirect_url') ?? site_url('/login');
             unset($_SESSION['redirect_url']);
 
             return redirect()->to($redirectURL);
@@ -266,8 +266,8 @@ class Prakon extends BaseController
 
     public function hapus1($kd_kerja)
     {
-        if ($this->auth->check()) {
-            $redirectURL = session('redirect_url') ?? site_url('/');
+        if (!$this->auth->check()) {
+            $redirectURL = session('redirect_url') ?? site_url('/login');
             unset($_SESSION['redirect_url']);
 
             return redirect()->to($redirectURL);
@@ -279,8 +279,8 @@ class Prakon extends BaseController
 
     public function edit1()
     {
-        if ($this->auth->check()) {
-            $redirectURL = session('redirect_url') ?? site_url('/');
+        if (!$this->auth->check()) {
+            $redirectURL = session('redirect_url') ?? site_url('/login');
             unset($_SESSION['redirect_url']);
 
             return redirect()->to($redirectURL);

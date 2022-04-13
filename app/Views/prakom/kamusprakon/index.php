@@ -2,11 +2,7 @@
 
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">Data Butir Kegiatan</h1>
-    <?php if (session()->getFlashdata('pesan')) : ?>
-        <div class="alert alert-success" role="alert">
-            <?= session()->getFlashdata('pesan') ?>
-        </div>
-    <?php endif; ?>
+    <div class="swal" data-swal='<?= session()->getFlashdata('pesan') ?>'></div>
 
 
 
@@ -202,7 +198,7 @@
                         <textarea class="form-control" name="contoh" id="contoh" rows="3" placeholder="Masukan Contoh"></textarea>
                     </div>
                     <div class="form-group">
-                        <select class="form-control" name="kd_kerja" id="combo1">
+                        <select class="form-control" name="kd_kerja" id="kd_kerja">
                             <option value="">Pilih Kode Jabatan</option>
                             <?php foreach ($struktur as $k) : ?>
                                 <option value="<?= $k['kd_kerja'] ?>"><?= $k['kd_kerja'] ?></option>
@@ -221,7 +217,7 @@
 
 >
 
-<!-- Modal -->
+<!-- Modal Detail -->
 <div class="modal fade" id="modalDetail" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

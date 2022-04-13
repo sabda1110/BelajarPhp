@@ -3,11 +3,9 @@
 
       <!-- Page Heading -->
       <h1 class="h3 mb-4 text-gray-800">Data Butir Kegiatan</h1>
-      <?php if (session()->getFlashdata('pesan')) : ?>
-          <div class="alert alert-success" role="alert">
-              <?= session()->getFlashdata('pesan') ?>
-          </div>
-      <?php endif; ?>
+
+      <div class="swal" data-swal='<?= session()->getFlashdata('pesan') ?>'></div>
+
 
       <div class="row">
           <div class="col-md-6">

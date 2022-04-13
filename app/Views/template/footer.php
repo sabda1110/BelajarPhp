@@ -45,7 +45,10 @@
 <script src="/asset/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 <!-- Custom scripts for all pages-->
-<script src="/asset//js/sb-admin-2.min.js"></script>
+<script src="/asset/js/sb-admin-2.min.js"></script>
+
+<!-- Sweet Alert 2 -->
+<script src="/asset/vendor/sweetalert/dist/sweetalert2.all.js"></script>
 
 
 <!-- My Script -->
