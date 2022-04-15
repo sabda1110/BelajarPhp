@@ -14,7 +14,7 @@
 
            <!-- Nav Item - Dashboard -->
            <li class="nav-item">
-               <a class="nav-link" href="<?php base_url('/') ?>">
+               <a class="nav-link" href="/">
                    <i class="fas fa-fw fa-tachometer-alt"></i>
                    <span>Dashboard</span></a>
            </li>
@@ -31,30 +31,28 @@
            <li class="nav-item">
                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                    <i class="fas fa-fw fa-database"></i>
-                   <span>Data Kegiatan</span>
+                   <span>Data Prakon</span>
                </a>
                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                    <div class="bg-white py-2 collapse-inner rounded">
                        <h6 class="collapse-header">Kegiatan Components:</h6>
-                       <a class="collapse-item" href="prakon">Documentasi</a>
-                       <a class="collapse-item" href="kamus">Kamus</a>
+                       <a class="collapse-item" href="/prakon">Documentasi</a>
+                       <a class="collapse-item" href="/prakon/kamus">Kamus</a>
                    </div>
                </div>
            </li>
 
            <!-- Nav Item - Utilities Collapse Menu -->
            <li class="nav-item">
-               <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-                   <i class="fas fa-fw fa-wrench"></i>
-                   <span>Utilities</span>
+               <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTree" aria-expanded="true" aria-controls="collapseTree">
+                   <i class="fas fa-fw fa-database"></i>
+                   <span>Data Statistisi</span>
                </a>
-               <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+               <div id="collapseTree" class="collapse" aria-labelledby="headingTree" data-parent="#accordionSidebar">
                    <div class="bg-white py-2 collapse-inner rounded">
-                       <h6 class="collapse-header">Custom Utilities:</h6>
-                       <a class="collapse-item" href="utilities-color.html">Colors</a>
-                       <a class="collapse-item" href="utilities-border.html">Borders</a>
-                       <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                       <a class="collapse-item" href="utilities-other.html">Other</a>
+                       <h6 class="collapse-header">Kegiatan Components:</h6>
+                       <a class="collapse-item" href="/statistisi">Documentasi</a>
+                       <a class="collapse-item" href="/prakon/kamus">Kamus</a>
                    </div>
                </div>
            </li>
