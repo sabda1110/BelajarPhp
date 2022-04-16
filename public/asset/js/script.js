@@ -28,6 +28,13 @@ $(document).on('click', '#btn-detail', function () {
   $('.modal-body .kd_kerja').text($(this).data('kd_kerja'));
 });
 
+$(document).on('click', '#btn-editdoc', function () {
+  $('.modal-body #kode_jabatan').val($(this).data('kode_jabatan'));
+  $('.modal-body #jabatan').val($(this).data('jabatan'));
+  $('.modal-body #sub_jabatan').val($(this).data('sub_jabatan'));
+  $('.modal-body #rincian_kegiatan').val($(this).data('rincian_kegiatan'));
+});
+
 // Sweet Alert
 const swal = $('.swal').data('swal');
 if (swal) {

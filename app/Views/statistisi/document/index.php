@@ -41,6 +41,7 @@
                 <td><?= $row['rincian_kegiatan'] ?></td>
                 <td>
                   <a href="/statistisi/hapusdoc/<?= $row['kode_jabatan'] ?>" id="btn-hapus" class="btn btn-sm btn-danger" data-id=""> <i class="fa fa-trash"></i> </a>
+                  <button type="button" data-toggle="modal" data-target="#modalEdit" class="btn btn-sm btn-warning" id="btn-editdoc" data-kode_jabatan="<?= $row['kode_jabatan'] ?>" data-jabatan="<?= $row['jabatan'] ?>" data-sub_jabatan="<?= $row['sub_jabatan'] ?>" data-rincian_kegiatan="<?= $row['rincian_kegiatan'] ?>"><i class="fa fa-edit"></i></button>
                 </td>
 
               </tr>
@@ -89,6 +90,44 @@
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               <button type="submit" name='tambah' class="btn btn-primary">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal Edit -->
+  <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Dokumentasi</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="statistisi/editdoc" method="post">
+
+            <input type="hidden" name="kode_jabatan" id="kode_jabatan" class="form-control">
+
+            <div class="form-group">
+              <label for="jabatan"></label>
+              <input type="text" name="jabatan" id="jabatan" class="form-control" placeholder="Masukan Jabatan">
+            </div>
+            <div class="form-group">
+              <label for="sub_jabatan"></label>
+              <input type="text" name="sub_jabatan" id="sub_jabatan" class="form-control" placeholder="Masukan Sub Jabatan">
+            </div>
+            <div class="form-group">
+              <label for="rincian_kegiatan"></label>
+              <textarea class="form-control" name="rincian_kegiatan" id="rincian_kegiatan" rows="3" placeholder="Masukan Butir Kegiatan"></textarea>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" name='editdoc' class="btn btn-primary">Edit</button>
             </div>
           </form>
         </div>

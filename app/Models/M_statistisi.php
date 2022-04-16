@@ -30,4 +30,8 @@ class M_statistisi extends Model
     {
         return $this->koneksi->table('struktur_statistisi')->delete(['kode_jabatan' => $kode_jabatan]);
     }
+    public function editdoc($data, $kode_jabatan)
+    {
+        return $this->koneksi->table('struktur_statistisi')->update($data, ['kode_jabatan' => $kode_jabatan]);
+    }
 }
