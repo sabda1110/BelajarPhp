@@ -34,4 +34,18 @@ class M_statistisi extends Model
     {
         return $this->koneksi->table('struktur_statistisi')->update($data, ['kode_jabatan' => $kode_jabatan]);
     }
+    public function getKamus($id = null)
+    {
+        if ($id == null) {
+
+            return $this->koneksi->table('kegiatan_statistisi')->get()->getResultArray();
+        } else {
+
+            return  $this->koneksi->table('kegiatan_statistisi')->where('kode_kegiatan', $id)->get()->getRowArray();
+        }
+    }
+    public function tambah($data)
+    {
+        return $this->koneksi->table('kegiatan_statistisi')->insert($data);
+    }
 }

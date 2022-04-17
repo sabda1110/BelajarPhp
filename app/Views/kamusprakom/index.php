@@ -41,7 +41,7 @@
                             <td><?= $row['sub_kegiatan'] ?></td>
                             <td class="" style="text-align: center;">
                                 <button type="button" data-toggle="modal" data-target="#modalDetail" class="btn btn-sm btn-success" id="btn-detail" data-kd_kegiatan="<?= $row['kd_kegiatan'] ?>" data-kegiatan="<?= $row['kegiatan'] ?>" data-sub_kegiatan="<?= $row['sub_kegiatan'] ?>" data-desc_kegiatan="<?= $row['desc_kegiatan'] ?>" data-satuan_hasil="<?= $row['satuan_hasil'] ?>" data-angka_kredit="<?= $row['angka_kredit'] ?>" data-batasan_penilaian="<?= $row['batasan_penilaian'] ?>" data-pelaksana="<?= $row['pelaksana'] ?>" data-bukti_fisik="<?= $row['bukti_fisik'] ?>" data-contoh="<?= $row['contoh'] ?>" data-kd_kerja="<?= $row['kd_kerja'] ?>"> <i class="fa fa-book"></i></button>
-                                <a href="/prakon/hapus/<?= $row['kd_kegiatan'] ?>" id="btn-hapus" class="btn btn-sm btn-danger" data-id=""> <i class="fa fa-trash"></i> </a>
+                                <a href="/kamusprakom/hapus/<?= $row['kd_kegiatan'] ?>" id="btn-hapus" class="btn btn-sm btn-danger" data-id=""> <i class="fa fa-trash"></i> </a>
                                 <button type="button" data-toggle="modal" data-target="#modalEdit" class="btn btn-sm btn-warning" id="btn-edit" data-kd_kegiatan="<?= $row['kd_kegiatan'] ?>" data-kegiatan="<?= $row['kegiatan'] ?>" data-sub_kegiatan="<?= $row['sub_kegiatan'] ?>" data-desc_kegiatan="<?= $row['desc_kegiatan'] ?>" data-satuan_hasil="<?= $row['satuan_hasil'] ?>" data-angka_kredit="<?= $row['angka_kredit'] ?>" data-batasan_penilaian="<?= $row['batasan_penilaian'] ?>" data-pelaksana="<?= $row['pelaksana'] ?>" data-bukti_fisik="<?= $row['bukti_fisik'] ?>" data-contoh="<?= $row['contoh'] ?>" data-kd_kerja="<?= $row['kd_kerja'] ?>"> <i class="fa fa-edit"></i></button>
 
 
@@ -74,7 +74,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="prakon/tambah" method="post">
+                <form action="Kamusprakom/tambah" method="post">
                     <div class="form-group">
                         <label for="kd_kegiatan"></label>
                         <input type="text" name="kd_kegiatan" id="kd_kegiatan" class="form-control" placeholder="Masukan Kode Kegiatan">
@@ -152,7 +152,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="prakon/edit" method="post">
+                <form action="kamusprakom/edit" method="post">
 
                     <input type="hidden" name="kd_kegiatan" id="kd_kegiatan" class="form-control" placeholder="Masukan Kode Kegiatan">
 

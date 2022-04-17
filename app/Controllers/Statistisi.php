@@ -170,4 +170,84 @@ class Statistisi extends BaseController
             return redirect()->to(base_url('statistisi'));
         }
     }
+    public function kamus()
+    {
+        if (!$this->auth->check()) {
+            $redirectURL = session('redirect_url') ?? site_url('/');
+            unset($_SESSION['redirect_url']);
+
+            return redirect()->to($redirectURL);
+        }
+
+        $data = [
+            'judul' => 'Kamus Statistisi',
+            'struktur' => $this->model->getStruktur(),
+            'kamus' => $this->model->getKamus()
+        ];
+
+        tampilan('statistisi/kamus/index', $data);
+    }
+
+    public function tambahkamus()
+    {
+        if (!$this->auth->check()) {
+            $redirectURL = session('redirect_url') ?? site_url('/login');
+            unset($_SESSION['redirect_url']);
+
+            return redirect()->to($redirectURL);
+        }
+        if (isset($_POST['tambahkamus'])) {
+            $val = $this->validate([
+                'kode_kegiatan' => [
+                    'label' => 'Kode Kegiatan',
+                    'rules' => 'required|max_length[5]|is_unique[kegiatan_statistisi.kode_kegiatan]',
+                    'errors' => [
+                        'required' => '{field} Tidak Boleh Kosong',
+                        'is_unique' => '{field} Data Sudah Ada'
+                    ]
+                ],
+                'kegiatan' => [
+                    'label' => 'Kegiatan',
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} tidak Boleh Kosong'
+                    ]
+                ]
+            ]);
+
+            if (!$val) {
+                session()->setFlashdata('err', \Config\Services::validation()->listErrors());
+                $data = [
+                    'judul' => 'Dokumentasi Pekerjaan Statistisi',
+                    'kegiatan' => $this->model->getkamusPrakon(),
+                    'struktur' => $this->model->getStruktur()
+                ];
+
+                return redirect()->to(base_url('statistisi/kamus'));
+            } else {
+
+                $data = [
+                    'kode_kegiatan' => $this->request->getPost('kode_kegiatan'),
+                    'kegiatan' => $this->request->getPost('kegiatan'),
+                    'desc_kegiatan' => $this->request->getPost('desc_kegiatan'),
+                    'satuan_hasil' => $this->request->getPost('satuan_hasil'),
+                    'angka_kredit' => $this->request->getPost('angka_kredit'),
+                    'pelaksana' => $this->request->getPost('pelaksana'),
+                    'bukti_fisik' => $this->request->getPost('bukti_fisik'),
+                    'contoh' => $this->request->getPost('contoh'),
+                    'kode_jabatan' => $this->request->getPost('kode_jabatan')
+
+                ];
+
+                //insert data
+                $success = $this->model->tambah($data);
+                if ($success) {
+                    session()->setFlashdata('pesan', 'Data Berhasil Di Tambah');
+                    return redirect()->to(base_url('statistisi/kamus'));
+                }
+            }
+        } else {
+            return redirect()->to(base_url('statistisi/kamus'));
+        }
+    }
 }

@@ -26,6 +26,7 @@ $(document).on('click', '#btn-detail', function () {
   $('.modal-body .bukti_fisik').text($(this).data('bukti_fisik'));
   $('.modal-body .contoh').text($(this).data('contoh'));
   $('.modal-body .kd_kerja').text($(this).data('kd_kerja'));
+  $('.modal-body .kode_jabatan').text($(this).data('kode_jabatan'));
 });
 
 $(document).on('click', '#btn-editdoc', function () {

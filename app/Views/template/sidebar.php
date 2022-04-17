@@ -37,7 +37,7 @@
                    <div class="bg-white py-2 collapse-inner rounded">
                        <h6 class="collapse-header">Kegiatan Components:</h6>
                        <a class="collapse-item" href="/prakon">Documentasi</a>
-                       <a class="collapse-item" href="/prakon/kamus">Kamus</a>
+                       <a class="collapse-item" href="/kamusprakom">Kamus</a>
                    </div>
                </div>
            </li>
@@ -52,7 +52,7 @@
                    <div class="bg-white py-2 collapse-inner rounded">
                        <h6 class="collapse-header">Kegiatan Components:</h6>
                        <a class="collapse-item" href="/statistisi">Documentasi</a>
-                       <a class="collapse-item" href="/prakon/kamus">Kamus</a>
+                       <a class="collapse-item" href="/statistisi/kamus">Kamus</a>
                    </div>
                </div>
            </li>

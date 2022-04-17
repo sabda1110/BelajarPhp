@@ -36,10 +36,13 @@
     </div>
 </div>
 
+
+
+
 <!-- Bootstrap core JavaScript-->
 <script src="/asset/js/jquery.min.js"></script>
-<script src="/asset//vendor/jquery/jquery.min.js"></script>
-<script src="/asset//vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/asset/vendor/jquery/jquery.min.js"></script>
+<script src="/asset/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- Core plugin JavaScript-->
 <script src="/asset/vendor/jquery-easing/jquery.easing.min.js"></script>
@@ -49,7 +52,6 @@
 
 <!-- Sweet Alert 2 -->
 <script src="/asset/vendor/sweetalert/dist/sweetalert2.all.js"></script>
-
 
 <!-- My Script -->
 <script src="asset/js/script.js"></script>

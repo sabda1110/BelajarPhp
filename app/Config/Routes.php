@@ -36,10 +36,10 @@ $routes->group('', ['filter' => 'login'], function ($routes) {
     $routes->get('/', 'Home::index');
     $routes->get('/prakon/kamus', 'Prakon::kamus');
     $routes->get('/detail/(:any)', 'Prakon::detail/$1');
-    $routes->get('/prakon/hapus/(:any)', 'Prakon::hapus/$1');
     $routes->get('/prakon/hapus1/(:any)', 'Prakon::hapus1/$1');
     $routes->get('/statistisi/document', 'Statistisi::index');
     $routes->get('/statistisi/hapusdoc/(:any)', 'Statistisi::hapusdoc/$1');
+    $routes->get('/kamusprakom/hapus/(:any)', 'Kamusprakom::hapus/$1');
 });
 
 
