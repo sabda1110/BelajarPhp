@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\M_prakon;
+use App\Models\M_kamusprakon;
 use CodeIgniter\Controller;
 
 class Prakon extends BaseController
@@ -12,7 +13,9 @@ class Prakon extends BaseController
         $this->session = service('session');
         $this->auth = service('authentication');
         $this->model = new M_prakon;
+        $this->docum  = new M_kamusprakon;
         helper('sn');
+        $pager = \Config\Services::pager();
     }
     public function index()
     {
@@ -24,8 +27,11 @@ class Prakon extends BaseController
         }
 
         $data = [
+
             'judul' => 'Dokumentasi Pekerjaan',
-            'struktur' => $this->model->getStruktur()
+            // 'struktur' => $this->model->getStruktur()
+            'struktur' => $this->docum->paginate(5),
+            'pager' => $this->docum->pager
         ];
 
 

@@ -215,7 +215,7 @@
     </div>
 </div>
 
->
+
 
 <!-- Modal Detail -->
 <div class="modal fade" id="modalDetail" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
