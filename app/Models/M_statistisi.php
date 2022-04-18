@@ -48,4 +48,12 @@ class M_statistisi extends Model
     {
         return $this->koneksi->table('kegiatan_statistisi')->insert($data);
     }
+    public function edit($data, $kode_kegiatan)
+    {
+        return $this->koneksi->table('kegiatan_statistisi')->update($data, ['kode_kegiatan' => $kode_kegiatan]);
+    }
+    public function hapus($kode_kegiatan)
+    {
+        return $this->koneksi->table('kegiatan_statistisi')->delete(['kode_kegiatan' => $kode_kegiatan]);
+    }
 }

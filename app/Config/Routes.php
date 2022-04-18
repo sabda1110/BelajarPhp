@@ -40,6 +40,7 @@ $routes->group('', ['filter' => 'login'], function ($routes) {
     $routes->get('/statistisi/document', 'Statistisi::index');
     $routes->get('/statistisi/hapusdoc/(:any)', 'Statistisi::hapusdoc/$1');
     $routes->get('/kamusprakom/hapus/(:any)', 'Kamusprakom::hapus/$1');
+    $routes->get('/kamusstatistisi/hapus/(:any)', 'Kamusstatistisi::hapus/$1');
 });
 
 

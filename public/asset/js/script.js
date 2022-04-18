@@ -1,5 +1,6 @@
 $(document).on('click', '#btn-edit', function () {
   $('.modal-body #kd_kegiatan').val($(this).data('kd_kegiatan'));
+  $('.modal-body #kode_kegiatan').val($(this).data('kode_kegiatan'));
   $('.modal-body #kegiatan').val($(this).data('kegiatan'));
   $('.modal-body #sub_kegiatan').val($(this).data('sub_kegiatan'));
   $('.modal-body #desc_kegiatan').val($(this).data('desc_kegiatan'));
@@ -11,6 +12,7 @@ $(document).on('click', '#btn-edit', function () {
   $('.modal-body #contoh').val($(this).data('contoh'));
   $('.modal-body #kd_kerja').val($(this).data('kd_kerja'));
   $('.modal-body #jabatan').val($(this).data('jabatan'));
+  $('.modal-body #kode_jabatan').val($(this).data('kode_jabatan'));
   $('.modal-body #jenjang').val($(this).data('jenjang'));
   $('.modal-body #butir_kegiatan').val($(this).data('butir_kegiatan'));
 });
