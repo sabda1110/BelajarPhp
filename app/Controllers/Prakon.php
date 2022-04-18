@@ -30,7 +30,7 @@ class Prakon extends BaseController
 
             'judul' => 'Dokumentasi Pekerjaan',
             // 'struktur' => $this->model->getStruktur()
-            'struktur' => $this->docum->paginate(5),
+            'struktur' => $this->docum->paginate(5, 'docprakon'),
             'pager' => $this->docum->pager
         ];
 

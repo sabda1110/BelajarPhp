@@ -48,6 +48,7 @@
 
                   </tbody>
               </table>
+              <?= $pager->links('docprakon', 'bootstrap_pager') ?>
           </div>
       </div>
 
