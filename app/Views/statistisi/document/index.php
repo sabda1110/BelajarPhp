@@ -21,6 +21,17 @@
         <button type="button" class="btn btn-primary  mb-2" data-toggle="modal" data-target="#modalTambah">
           <i class="fa fa-plus">Tambah Data </i>
         </button>
+        <div class="">
+          <form action="statistisi/index" method="post" autocomplete="off">
+            <div class="float-right mr-10">
+              <button type="submit" class="btn btn-primary"> <i class="fas fa-search"></i></button>
+            </div>
+            <div class="float-right ml-3">
+              <input type="text" name="keyword" class="form-control" value="" id="" style="width: 155pt;" placeholder="Masukan Keyword">
+            </div>
+          </form>
+        </div>
+
         <table class="table table-striped">
           <thead>
             <tr>
@@ -45,11 +56,14 @@
                 </td>
 
               </tr>
+
             <?php endforeach; ?>
 
 
           </tbody>
         </table>
+        <?= $pager->links('statis', 'bootstrap_pager') ?>
+
       </div>
     </div>
 

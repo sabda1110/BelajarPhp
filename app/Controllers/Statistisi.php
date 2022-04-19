@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\M_statistisi;
+use App\Models\M_kamusstatistisi;
 
 class Statistisi extends BaseController
 {
@@ -12,6 +13,7 @@ class Statistisi extends BaseController
         $this->session = service('session');
         $this->auth = service('authentication');
         $this->model = new M_statistisi;
+        $this->docum = new M_kamusstatistisi();
         helper('sn');
     }
 
@@ -24,9 +26,17 @@ class Statistisi extends BaseController
             return redirect()->to($redirectURL);
         }
 
+        $keyword = $this->request->getVar('keyword');
+        if ($keyword) {
+            $orang = $this->docum->search($keyword);
+        } else {
+            $orang = $this->docum;
+        }
+
         $data = [
             'judul' => 'Kamus Statistisi',
-            'struktur' => $this->model->getStruktur()
+            'struktur' => $orang->paginate(5, 'statis'),
+            'pager' => $this->docum->pager
         ];
 
         tampilan('statistisi/document/index', $data);

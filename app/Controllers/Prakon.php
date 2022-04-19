@@ -26,11 +26,18 @@ class Prakon extends BaseController
             return redirect()->to($redirectURL);
         }
 
+        $keyword = $this->request->getVar('keyword');
+        if ($keyword) {
+            $orang = $this->docum->search($keyword);
+        } else {
+            $orang = $this->docum;
+        }
+
         $data = [
 
             'judul' => 'Dokumentasi Pekerjaan',
             // 'struktur' => $this->model->getStruktur()
-            'struktur' => $this->docum->paginate(5, 'docprakon'),
+            'struktur' => $orang->paginate(5, 'docprakon'),
             'pager' => $this->docum->pager
         ];
 

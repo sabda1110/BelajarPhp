@@ -6,6 +6,8 @@ use CodeIgniter\Model;
 
 class M_prakon extends Model
 {
+
+
     public function __construct()
     {
         $this->koneksi = db_connect();
