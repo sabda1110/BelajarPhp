@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\M_prakon;
+use App\Models\M_docprakon;
 use CodeIgniter\Controller;
 
 class Kamusprakom extends BaseController
@@ -12,6 +13,7 @@ class Kamusprakom extends BaseController
         $this->session = service('session');
         $this->auth = service('authentication');
         $this->model = new M_prakon;
+        $this->docum = new M_docprakon;
         helper('sn');
     }
 
@@ -23,11 +25,18 @@ class Kamusprakom extends BaseController
 
             return redirect()->to($redirectURL);
         }
+        $keyword = $this->request->getVar('keyword');
+        if ($keyword) {
+            $orang = $this->docum->search($keyword);
+        } else {
+            $orang = $this->docum;
+        }
 
         $data = [
             'judul' => 'Dokumentasi Pekerjaan',
-            'kegiatan' => $this->model->getkamusPrakon(),
-            'struktur' => $this->model->getStruktur()
+            'kegiatan' => $orang->paginate(5, 'kamusprakon'),
+            'struktur' => $this->model->getStruktur(),
+            'pager' => $this->docum->pager
         ];
 
         tampilan('kamusprakom/index', $data);
