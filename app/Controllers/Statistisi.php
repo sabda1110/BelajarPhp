@@ -25,10 +25,12 @@ class Statistisi extends BaseController
 
             return redirect()->to($redirectURL);
         }
-
+        $tes = $this->request->getGet('jenjang');
         $keyword = $this->request->getVar('keyword');
         if ($keyword) {
             $orang = $this->docum->search($keyword);
+        } else if ($tes) {
+            $orang = $this->docum->search($tes);
         } else {
             $orang = $this->docum;
         }

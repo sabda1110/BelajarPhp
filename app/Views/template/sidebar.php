@@ -29,17 +29,21 @@
 
            <!-- Nav Item - Pages Collapse Menu -->
            <li class="nav-item">
-               <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+               <a class="nav-link collapsed" href="/prakon" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                    <i class="fas fa-fw fa-database"></i>
                    <span>Data Prakon</span>
                </a>
                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                    <div class="bg-white py-2 collapse-inner rounded">
                        <h6 class="collapse-header">Kegiatan Components:</h6>
-                       <a class="collapse-item" href="/prakon">Documentasi</a>
+                       <a class="collapse-item" href="/prakon/index?jenjang=mahir">Documentasi Mahir</a>
+                       <a class="collapse-item" href="/prakon">Documentasi Mahir</a>
+                       <a class="collapse-item" href="/prakon/index?jenjang=penyelia">Documentasi Penyelia</a>
+                       <a class="collapse-item" href="/prakon/index?jenjang=terampil">Documentasi Terampil</a>
                        <a class="collapse-item" href="/kamusprakom">Kamus</a>
                    </div>
                </div>
+
            </li>
 
            <!-- Nav Item - Utilities Collapse Menu -->
@@ -51,7 +55,9 @@
                <div id="collapseTree" class="collapse" aria-labelledby="headingTree" data-parent="#accordionSidebar">
                    <div class="bg-white py-2 collapse-inner rounded">
                        <h6 class="collapse-header">Kegiatan Components:</h6>
-                       <a class="collapse-item" href="/statistisi">Documentasi</a>
+                       <a class="collapse-item" href="/statistisi/index?jenjang=mahir">Documentasi Mahir</a>
+                       <a class="collapse-item" href="/statistisi/index?jenjang=penyelia">Documentasi Penyelia</a>
+                       <a class="collapse-item" href="/statistisi/index?jenjang=terampil">Documentasi Terampil</a>
                        <a class="collapse-item" href="/kamusstatistisi">Kamus</a>
                    </div>
                </div>

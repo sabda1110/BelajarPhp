@@ -54,7 +54,9 @@
 <script src="/asset/vendor/sweetalert/dist/sweetalert2.all.js"></script>
 
 <!-- My Script -->
-<script src="asset/js/script.js"></script>
+<script src="/asset/js/script.js"></script>
+
+
 
 </body>
 

@@ -52,7 +52,7 @@
                    <div class="bg-white py-2 collapse-inner rounded">
                        <h6 class="collapse-header">Kegiatan Components:</h6>
                        <a class="collapse-item" href="/userdocstatistisi">Documentasi</a>
-                       <a class="collapse-item" href="#">Kamus</a>
+                       <a class="collapse-item" href="/userkamusstatistisi">Kamus</a>
                    </div>
                </div>
            </li>

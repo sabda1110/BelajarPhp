@@ -10,7 +10,7 @@ class M_docprakon extends Model
     public function search($keyword)
     {
         $builder = $this->table('kegiatan');
-        $builder->like('kd_kerja', $keyword)->orlike('kegiatan', $keyword);
+        $builder->like('kd_kerja', $keyword)->orlike('kegiatan', $keyword)->orlike('sub_kegiatan', $keyword);
         return $builder;
     }
 }

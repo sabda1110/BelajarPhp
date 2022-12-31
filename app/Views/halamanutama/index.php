@@ -283,7 +283,7 @@
                 <div class="row">
 
                     <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                        <div class="member">
+                        <div class="member ml-300">
                             <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
                             <div class="member-info">
                                 <div class="member-info-content">

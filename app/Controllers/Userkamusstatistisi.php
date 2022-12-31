@@ -3,16 +3,16 @@
 namespace App\Controllers;
 
 
-use App\Models\M_docprakon;
+use App\Models\M_docstatistisi;
 
-class Userkamusprakom extends BaseController
+class Userkamusstatistisi extends BaseController
 {
     public function __construct()
     {
 
         $this->session = service('session');
         $this->auth = service('authentication');
-        $this->docum = new M_docprakon;
+        $this->docum = new M_docstatistisi();
         helper('sn');
     }
 
@@ -30,10 +30,10 @@ class Userkamusprakom extends BaseController
 
             'judul' => 'Dokumentasi Pekerjaan',
             // 'struktur' => $this->model->getStruktur()
-            'struktur' => $orang->paginate(5, 'kamusprakom'),
+            'kamus' => $orang->paginate(5, 'kamusstatistisi'),
             'pager' => $this->docum->pager
         ];
 
-        tampilan1('userkamusprakom/index', $data);
+        tampilan1('userkamusstatistisi/index', $data);
     }
 }

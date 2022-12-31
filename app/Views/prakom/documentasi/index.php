@@ -82,7 +82,7 @@
                   </button>
               </div>
               <div class="modal-body">
-                  <form action="prakon/tambah1" method="post">
+                  <form action="Prakon/tambah1" method="post">
                       <div class="form-group">
                           <label for="kd_kerja"></label>
                           <input type="text" name="kd_kerja" id="kd_kerja" class="form-control" placeholder="Masukan Kode Kerja">

@@ -7,19 +7,13 @@
 
 
     <div class="row">
-        <div class="col-md-6">
-            <?php
-            if (session()->get('err')) {
-                echo "<div class='alert alert-danger' role='alert'>" . session()->get('err') . "</div>";
-            }
-            ?>
-        </div>
+
     </div>
     <div class="card">
 
         <div class="card-body">
             <div class="">
-                <form action="userkamusprakom/index" method="post" autocomplete="off">
+                <form action="kamusstatistisi/index" method="post" autocomplete="off">
                     <div class="float-right mr-10">
                         <button type="submit" class="btn btn-primary"> <i class="fas fa-search"></i></button>
                     </div>
@@ -34,29 +28,27 @@
                         <th scope="col">Kode Kegiatan</th>
                         <th scope="col">Kegiatan</th>
                         <th scope="col">Kode Jabatan</th>
-                        <th scope="col">Sub_kegiatan</th>
                         <th style="text-align: center;" scope="col">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
 
-                    <?php foreach ($struktur as $row) : ?>
+                    <?php foreach ($kamus as $row) : ?>
                         <tr>
-                            <th scope="row"><?= $row['kd_kegiatan'] ?></th>
+                            <th scope="row"><?= $row['kode_kegiatan'] ?></th>
                             <td><?= $row['kegiatan'] ?></td>
-                            <td><?= $row['kd_kerja'] ?></td>
-                            <td><?= $row['sub_kegiatan'] ?></td>
+                            <td><?= $row['kode_jabatan'] ?></td>
                             <td class="" style="text-align: center;">
-                                <button type="button" data-toggle="modal" data-target="#modalDetail" class="btn btn-sm btn-success" id="btn-detail" data-kd_kegiatan="<?= $row['kd_kegiatan'] ?>" data-kegiatan="<?= $row['kegiatan'] ?>" data-sub_kegiatan="<?= $row['sub_kegiatan'] ?>" data-desc_kegiatan="<?= $row['desc_kegiatan'] ?>" data-satuan_hasil="<?= $row['satuan_hasil'] ?>" data-angka_kredit="<?= $row['angka_kredit'] ?>" data-batasan_penilaian="<?= $row['batasan_penilaian'] ?>" data-pelaksana="<?= $row['pelaksana'] ?>" data-bukti_fisik="<?= $row['bukti_fisik'] ?>" data-contoh="<?= $row['contoh'] ?>" data-kd_kerja="<?= $row['kd_kerja'] ?>"> <i class="fa fa-book"></i></button>
-
+                                <button type="button" data-toggle="modal" data-target="#modalDetail" class="btn btn-sm btn-success" id="btn-detail" data-kode_kegiatan="<?= $row['kode_kegiatan'] ?>" data-kegiatan="<?= $row['kegiatan'] ?>" data-desc_kegiatan="<?= $row['desc_kegiatan'] ?>" data-satuan_hasil="<?= $row['satuan_hasil'] ?>" data-angka_kredit="<?= $row['angka_kredit'] ?>" data-pelaksana="<?= $row['pelaksana'] ?>" data-bukti_fisik="<?= $row['bukti_fisik'] ?>" data-contoh="<?= $row['contoh'] ?>" data-kode_jabatan="<?= $row['kode_jabatan'] ?>"> <i class="fa fa-book"></i></button>
                             </td>
 
                         </tr>
                     <?php endforeach; ?>
 
                 </tbody>
+
             </table>
-            <?= $pager->links('kamusprakom', 'bootstrap_pager') ?>
+            <?= $pager->links('kamusstatistisi', 'bootstrap_pager') ?>
         </div>
     </div>
 
@@ -64,8 +56,8 @@
 <!-- /.container-fluid -->
 
 </div>
-<!-- End of Main Content -->
-<!-- Button trigger modal -->
+
+
 
 <!-- Modal Detail -->
 <div class="modal fade" id="modalDetail" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
@@ -79,7 +71,6 @@
             </div>
             <div class="modal-body">
 
-                <h4 class="sub_kegiatan">Sub Kegiatan</h4>
                 <br>
                 <p class="desc_kegiatan">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam quidem repudiandae accusamus, perferendis voluptatem aut atque inventore dolores qui facilis doloribus, fugit aliquid fugiat! Temporibus a ratione nemo tenetur quaerat?</p>
                 <br>
@@ -101,8 +92,8 @@
                 <label for="contoh"><b>Contoh :</b></label>
                 <p class="contoh">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi velit ipsam nesciunt atque debitis numquam ad consequatur veniam vero architecto eius obcaecati, laudantium porro ea nihil! Doloribus quo nemo dignissimos.</p>
                 <br>
-                <label for="kd_kerja"><b>Kode Jabatan :</b></label>
-                <i class="kd_kerja">Kode Jabatan</i>
+                <label for="kode_jabatan"><b>Kode Jabatan :</b></label>
+                <i class="kode_jabatan">Kode Jabatan</i>
 
             </div>
             <div class="modal-footer">

@@ -58,6 +58,7 @@
                     <?php endforeach; ?>
 
                 </tbody>
+
             </table>
             <?= $pager->links('kamusstatistisi', 'bootstrap_pager') ?>
         </div>

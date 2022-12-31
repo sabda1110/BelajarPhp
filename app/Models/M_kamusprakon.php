@@ -10,7 +10,7 @@ class M_kamusprakon extends Model
     public function search($keyword)
     {
         $builder = $this->table('struktur_bps');
-        $builder->like('butir_kegiatan', $keyword)->orlike('jabatan', $keyword);
+        $builder->like('butir_kegiatan', $keyword)->orlike('jabatan', $keyword)->orlike('jenjang', $keyword);
         return $builder;
     }
 }
